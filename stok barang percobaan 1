@@ -1,0 +1,63 @@
+import numpy as np
+import pandas as pd
+df = pd.read_excel("Downloads\data toko.xlsx")
+df
+for i in range(len(df)):
+    a = df["Nama Barang"][i]
+    b = df["Jumlah Barang"][i]
+def tambah_stok(nama_barang, jumlah):
+    if nama_barang in a:
+        b = b + jumlah 
+        print(f"Stok barang {nama_barang} berhasil ditambahkan sebanyak {jumlah}.\n")
+    else:
+        print('Barang tidak ada pada daftar, pilih menu 4')
+    
+        
+def kurang_stok(nama_barang, jumlah):
+    if nama_barang in a:
+        if b > 0:
+            b = float(b) - float(jumlah)
+        else:
+            print("Barang tidak bisa dikurang")
+    else:
+        b = jumlah
+    print(f"Stok barang {nama_barang} berhasil dikurang sebanyak {jumlah}.\n")
+        
+        
+        
+def cek_stok(nama_barang):
+    if nama_barang in a:
+        print(f"Stok barang {nama_barang}: {float(b)}\n")
+    else:
+        print(f"Barang {nama_barang} tidak ditemukan dalam stok.\n")
+
+
+def main():
+    stok_manajer = df
+    
+    while True:
+        print("Menu:")
+        print("1. Tambah Stok Barang")
+        print("2. Kurang Stok Barang")
+        print("3. Cek Stok Barang")
+        print("4. Keluar")
+
+        pilihan = input("Masukkan pilihan (1/2/3/4): ")
+
+        if pilihan == '1':
+            nama_barang = input("Masukkan nama barang: ")
+            jumlah = int(input("Masukkan jumlah stok: "))
+            stok_manajer.tambah_stok(nama_barang, jumlah)
+        elif pilihan == '2':
+            nama_barang = input("Masukkan nama barang: ")
+            stok_manager.kurang_stok(nama_barang, jumlah)
+        elif pilihan == '3':
+            nama_barang = input("Masukkan nama barang yang ingin dicek stoknya: ")
+            stok_manager.cek_stok(nama_barang)
+        elif pilihan == '4':
+            print("Terima kasih! Program selesai.")
+            break
+        else:
+            print("Pilihan tidak valid. Silakan pilih lagi.\n")
+
+main()
